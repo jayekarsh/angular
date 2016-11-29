@@ -16,6 +16,7 @@
 		  </li>
 		</ul>
 		
+		<p>Price: {{ price | currency }}</p>
 		
 	</div>
 	<script>
@@ -27,6 +28,8 @@
 			{name:'Decay'},
 			{name:'Dhruvang'},
 		];
+		
+		$scope.price = 100;
 		
 	});
 	</script>
