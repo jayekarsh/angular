@@ -1,0 +1,23 @@
+<html>
+	<head>
+    	<script src="angular.min.js"></script>	
+    </head>
+    <body> 
+        <div ng-app="getApp" ng-controller="getCtrl"> 
+	        <p>{{text}}</p>
+        </div>
+		<script>
+			var app = angular.module('getApp', []);
+			app.controller('getCtrl', function($scope, $http) {
+			  $http({
+				method : "GET",
+				url : "Text.txt"
+			  }).then(function mySucces(response) {
+				  $scope.text = response.data;
+				}, function myError(response) {
+				  $scope.text = response.statusText;
+			  });
+			});
+        </script>
+	</body>
+</html>
