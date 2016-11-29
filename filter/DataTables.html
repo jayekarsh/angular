@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+		.datatable input {
+			-moz-border-bottom-colors: none;
+			-moz-border-left-colors: none;
+			-moz-border-right-colors: none;
+			-moz-border-top-colors: none;
+			border-color: #aaa;
+			border-image: none;
+			border-style: none none solid;
+			font-size: 16px;
+			margin: 20px 0;
+			padding: 10px;
+			width: 100%;
+		}
+		</style>
+	</head>
+<body>
+	<div ng-app="sample" ng-controller="sample">	
+		
+	<div class="col-md-4 col-md-offset-4 datatable">
+		<input type="text" ng-model="sort" placeholder="Search"/>	
+		<table class="table table-bordered">
+			<tr>
+				<th ng-click="orderByMe('name')">Name</th>
+				<th ng-click="orderByMe('city')">City</th>
+			</tr>
+			<tr ng-repeat="x in names | filter:sort | orderBy:myOrderBy">
+				<td>{{x.name}}</td>
+				<td>{{x.city}}</td>
+			</tr>
+		</table>
+	</div>	
+		
+		
+	</div>
+	<script>
+		var data = angular.module("sample", []);
+		data.controller('sample', function($scope){			
+			$scope.names = [
+				{name:'Champ', city:'Ahmedabad'},
+				{name:'Decay', city:'Ahmedabad'},
+				{name:'Dhruvang', city:'Baroda'},
+				{name:'Gajjar', city:'Ahmedabad'},
+				{name:'jay', city:'Baroda'},
+				{name:'Agarwal', city:'Surat'},
+				{name:'eKarsh', city:'Baroda'},
+				{name:'Nikz', city:'Surat'},
+			];
+
+			$scope.orderByMe = function(x) {
+				$scope.myOrderBy = x;
+			}
+			
+		});
+	</script>
+</body>
+</html>
