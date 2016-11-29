@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+	</head>
+<body>
+<div ng-app="simple" ng-controller="sample">
+	<input type="number" ng-model="oneNumber" />
+	<input type="number" ng-model="twoNumber" />
+	<button ng-click="sum()">+</button>
+	<button ng-click="minus()">-</button>
+	<button ng-click="mul()">*</button>
+	<button ng-click="divide()">/</button>
+	<h1>{{ans}}</h1>
+</div>
+<script>
+			var data = angular.module("simple", []);
+			data.controller('sample', function($scope){
+				
+				$scope.sum = function() {
+					$scope.ans = $scope.oneNumber + $scope.twoNumber;
+				}
+				$scope.minus = function() {
+					$scope.ans = $scope.oneNumber - $scope.twoNumber;
+				}
+				$scope.mul = function() {
+					$scope.ans = $scope.oneNumber * $scope.twoNumber;
+				}
+				$scope.divide = function() {
+					$scope.ans = $scope.oneNumber / $scope.twoNumber;
+				}
+				
+			});
+		</script>
+</body>
+</html>
