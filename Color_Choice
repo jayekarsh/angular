@@ -1,0 +1,47 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<style>
+.red
+{
+color:white;
+background-color:blue;
+}
+.blue
+{
+color:red;
+background-color:yellow;
+}
+.yellow
+{
+color:yellow;
+background-color:red;
+}
+</style>
+<div ng-app="myApp" ng-controller="personCtrl">
+
+<span> Choose a theme to highlight paragraph below &nbsp;&nbsp;&nbsp;</span>
+	<select ng-model="selectedTheme">
+		<option value="{{css}}" ng-repeat="(themeName,css) in styleSet">{{themeName}}</option>
+       
+	</select>
+
+	<p ng-class="selectedTheme">Theme is applied on this text</p>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+  $scope.styleSet={ 
+  "Blue with Red Background":"red",
+  "Red with Blue Background":"blue",
+  "Yellow with red background":"yellow"
+  }
+    
+});
+</script>
+
+</body>
+</html>
